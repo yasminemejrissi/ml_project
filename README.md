@@ -1,73 +1,87 @@
-# ml_project
-# 🛒 Analyse E-commerce simulée avec MongoDB et Machine Learning
+# Analyse e-commerce simulée avec MongoDB et Machine Learning
 
-## 🇫🇷 Présentation
+## Présentation
 
-Ce projet simule une base de données e-commerce avec des données clients, des commandes, et des produits générés à l’aide de la librairie `Faker`. Les données sont stockées dans MongoDB, analysées avec `pymongo` et `pandas`, puis utilisées pour :
+Ce projet simule une base de données e-commerce à l'aide de `Faker`, en générant des données réalistes sur des clients, des produits et des commandes. Ces données sont stockées dans MongoDB, puis analysées avec `pymongo`, `pandas` et `scikit-learn`.
 
-- Calculer des **indicateurs clés** (chiffre d’affaires, panier moyen, etc.)
-- Réaliser une **segmentation clients** (VIP, promo addict, régulier, etc.)
-- Prédire le **churn** (perte de clients) via un modèle **Random Forest**
+L’objectif est triple :
 
-L’objectif est de démontrer des compétences en manipulation de données, analyse client, et machine learning supervisé sur un jeu de données réaliste mais simulé.
+1. Extraire des indicateurs clés de performance (KPIs) : chiffre d'affaires, panier moyen, taux d'utilisation de promotions, etc.
+2. Segmenter les clients selon leur comportement d'achat (VIP, addict aux promos, régulier, occasionnel).
+3. Prédire la probabilité de churn (perte de clients inactifs) à l’aide d’un modèle de classification supervisée.
 
-## 📦 Technologies utilisées
+## Pourquoi le modèle Random Forest ?
 
-- `Python` (pandas, scikit-learn, seaborn, matplotlib)
-- `MongoDB` + `pymongo`
-- `Faker` pour générer les données
-- `scikit-learn` pour le machine learning
+J’ai choisi Random Forest comme modèle de classification pour prédire le churn car :
 
-## 🔍 Étapes principales
+- C’est un modèle robuste et non-linéaire, capable de capturer des interactions complexes entre variables.
+- Il s’adapte bien aux données numériques sans nécessiter de normalisation.
+- Il réduit le risque de surapprentissage grâce à l’agrégation de plusieurs arbres (bagging).
+- Il offre une interprétation intuitive des résultats via l’importance des variables.
+- Il est rapide à entraîner, ce qui est avantageux pour une phase exploratoire.
 
-1. **Génération de données** : 100 clients, 2000 commandes, 10 produits
-2. **Calculs de KPIs** : chiffre d’affaires par pays, panier moyen par mois, etc.
-3. **Segmentation clients** : classification des profils d’acheteurs
-4. **Détection du churn** : étiquetage des clients n’ayant pas commandé depuis 4 jours
-5. **Modélisation** : Random Forest, évaluation par matrice de confusion et `classification_report`
-6. **Visualisations** : courbes, heatmap, statistiques descriptives
+Ce choix s’inscrit dans une logique de rigueur analytique, tout en restant pragmatique pour un projet exploratoire basé sur des données synthétiques.
 
----
+## Technologies utilisées
 
-## 🇬🇧 Project Overview
+- Python : pandas, numpy, scikit-learn, seaborn, matplotlib
+- Base de données NoSQL : MongoDB
+- Génération de données : Faker
+- Machine Learning : RandomForestClassifier
 
-This project simulates an e-commerce database with customers, orders, and products using the `Faker` library. Data is stored in MongoDB, analyzed using `pymongo` and `pandas`, and used to:
+## Étapes du projet
 
-- Compute **key performance indicators** (total revenue, average basket, etc.)
-- Perform **customer segmentation** (VIP, promo addict, regular, etc.)
-- Predict **churn** using a **Random Forest** classifier
+1. Génération des données : 100 clients, 2000 commandes, 10 produits
+2. Analyse des comportements : chiffre d'affaires par pays, panier moyen par mois, utilisation de promotions
+3. Segmentation clients : attribution d’un profil en fonction du comportement d’achat
+4. Détection du churn : identification des clients n’ayant pas commandé depuis plus de 4 jours
+5. Modélisation : entraînement d’un modèle Random Forest
+6. Visualisations : matrice de confusion, statistiques descriptives
 
-The goal is to showcase skills in data manipulation, customer analysis, and supervised machine learning on realistic synthetic data.
-
-## 📦 Tech Stack
-
-- `Python` (pandas, scikit-learn, seaborn, matplotlib)
-- `MongoDB` + `pymongo`
-- `Faker` for data generation
-- `scikit-learn` for modeling
-
-## 🔍 Main Steps
-
-1. **Data generation**: 100 customers, 2000 orders, 10 products
-2. **KPI calculation**: revenue per country, monthly average basket, etc.
-3. **Customer segmentation**: identify buyer profiles
-4. **Churn labeling**: mark clients with no purchase in the last 4 days
-5. **Modeling**: train and evaluate a Random Forest classifier
-6. **Visualizations**: plots, confusion matrix, and summary stats
 
 ---
 
-## 📁 Fichiers principaux / Key Files
 
-- `notebook.ipynb` : code complet, étapes de traitement, analyse, et modèle
-- `README.md` : ce fichier
-- (Optionnel) `requirements.txt` : dépendances Python
+### Simulated E-commerce Analysis with MongoDB and Machine Learning
 
----
+This project simulates an e-commerce database using `Faker`, generating realistic customer, product, and order data. The data is stored in MongoDB and analyzed using `pymongo`, `pandas`, and `scikit-learn`.
 
-## ✨ Auteurs / Authors
+The goals of the project are:
 
-Projet réalisé par [Ton Nom ou Pseudo].
+1. Extract key performance indicators (KPIs): total revenue, average basket, promo usage rate.
+2. Segment customers by behavior (VIP, promo addict, regular, occasional).
+3. Predict customer churn using supervised classification.
 
----
+### Why Random Forest?
+
+Random Forest was selected because it is:
+
+- A robust, non-linear model that captures complex feature interactions.
+- Well suited to numerical data, with no need for normalization.
+- Less prone to overfitting due to ensemble learning (bagging).
+- Interpretable via feature importance scores.
+- Fast to train, making it ideal for exploratory projects on synthetic datasets.
+
+This choice balances performance, interpretability, and ease of use in a realistic project context.
+
+### Tech Stack
+
+- Python: pandas, numpy, scikit-learn, seaborn, matplotlib
+- NoSQL database: MongoDB
+- Data generation: Faker
+- Machine Learning: RandomForestClassifier
+
+### Project Steps
+
+1. Data simulation: 100 customers, 2000 orders, 10 products
+2. KPI analysis: revenue by country, monthly trends, promo usage
+3. Customer segmentation: based on order frequency and promo use
+4. Churn labeling: inactive after 4 days
+5. Modeling: training and evaluating a Random Forest classifier
+6. Visualizations: confusion matrix, descriptive stats
+
+## Author
+
+Created by Mejrissi Yasmine — for learning and portfolio purposes.
+
 
